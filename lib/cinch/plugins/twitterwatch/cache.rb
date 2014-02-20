@@ -3,21 +3,21 @@ module Cinch::Plugins
     class Cache
       attr_accessor :nick, :channel, :tweet_cache, :client
 
-      def initialize(nick, channel, client, tweets = {})
+      def initialize(nick, channel, client)
         @nick = nick
         @client = client
         @channel = channel
-        @tweet_cache = tweets
+        @tweet_cache = {}
       end
 
       def init_cache
-        @client.search("from:#{@nick}").each do |tweet|
+        @client.user_timeline(@nick).each do |tweet|
           cache_tweet(tweet.id)
         end
         "Cache: [#{@nick}]: #{@tweet_cache.count} tweets cached."
-      #rescue Twitter::Error::NotFound
-      #  debug "You have set an invalid or protected user (#{@nick}) to " +
-      #        ' watch, please correct this error'
+      rescue Twitter::Error::NotFound
+        debug "You have set an invalid or protected user (#{@nick}) to " +
+              ' watch, please correct this error'
       end
 
       def tweet_unless_cached(tweet_id)

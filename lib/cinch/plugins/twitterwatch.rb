@@ -8,7 +8,7 @@ module Cinch::Plugins
   class TwitterWatch
     include Cinch::Plugin
 
-    timer 15, method: :check_watched
+    timer 10, method: :check_watched
 
     def initialize(*args)
       super
@@ -18,18 +18,22 @@ module Cinch::Plugins
 
     def check_watched
       return unless @watched
-
-      @watched.each do |w|
-        # Just check the last tweet, if they are posting more than once
-        # every timer tick we don't want to spam the channel.
-        debug "Checking Tweets for #{w.nick} (#{w.tweet_cache.count} cached)"
-        tweet = @client.user(w.nick).status
-        status = w.tweet_unless_cached(tweet.id)
-        Channel(w.channel).msg(tweet_text(w.nick, status)) unless status.nil?
-      end
+      @watched.each { |w| check_for_tweet(w) }
     rescue Twitter::Error::NotFound
       debug 'You have set an invalid or protected user ' +
             'to watch, please correct this error'
+    rescue Twitter::Error::TooManyRequests
+      debug 'Trottled checking user; sleeping 30 seconds.'
+      sleep 30
+    end
+
+    def check_for_tweet(w)
+      # Just check the last tweet, if they are posting more than once
+      # every timer tick we don't want to spam the channel.
+      debug "Checking Tweets for #{w.nick} (#{w.tweet_cache.count} cached)"
+      tweet = @client.user(w.nick).status
+      status = w.tweet_unless_cached(tweet.id)
+      Channel(w.channel).msg(tweet_text(w.nick, status)) unless status.nil?
     end
 
     def format_tweet(url)
@@ -61,7 +65,7 @@ module Cinch::Plugins
       config[:watchers].each_pair do |chan, users|
         users.each do |user|
           watcher = Cache.new(user, chan, @client)
-          debug watcher.init_cache
+          debug "#{watcher.init_cache}"
           watched << watcher
         end
       end
