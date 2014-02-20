@@ -46,7 +46,7 @@ config like so:
                                                         access_secret:   'access_secret',
                                                         watchers:
                                                           '#CHANNEL':
-                                                            - 'TWITTER_USER'
+                                                            - 'TWITTER_USERNAME'
                                                       }
 
 Then post a link to a specific tweet and the bot should post the content of said tweet to the channel.
