@@ -1,45 +1,45 @@
 ---
 language: ruby
 rvm:
-  - 2.1.0
-  - 2.0.0
-  - 1.9.3
-  - 1.9.2
-  - 1.8.7
-  - jruby-18mode
-  - jruby-19mode
-  - rbx
-  - ruby-head
-  - jruby-head
-  - ree
+- 2.1.0
+- 2.0.0
+- 1.9.3
+- 1.9.2
+- 1.8.7
+- jruby-18mode
+- jruby-19mode
+- rbx
+- ruby-head
+- jruby-head
+- ree
 matrix:
   allow_failures:
-    - rvm: 1.8.7
-    - rvm: ree
-    - rvm: jruby-18mode
-    - rvm: jruby-19mode
-    - rvm: jruby-head
+  - rvm: 1.8.7
+  - rvm: ree
+  - rvm: jruby-18mode
+  - rvm: jruby-19mode
+  - rvm: jruby-head
   fast_finish: true
 env:
   global:
-    - JRUBY_OPTS=-Xcext.enabled=true
-    - secure: ! 'Yz/VAtfbXwk6JD/2/z6c2SGygNGELrF0dlZ/M5nOrDiKNm8lxpC6w19esGbB
+  - JRUBY_OPTS=-Xcext.enabled=true
+  - secure: ! 'AuTqK4GVSvHxsUdgDXivtFuCQjB7EX19zM5C2b2omp1BLAQsnAyDse/6x2Oe
 
-      CYt8UtqylceJ2UxYngHLVH48oPb+A5fv21/jDJMqHeO/N4WjwQUOzBZXfZG6
+      kB7SzCwH/PIeSJ8xNzcKF/c32lJZBdQAU7Cz210XoXCevefpWa4Y/4u/nNi2
 
-      lpugXIsT9Q10q0AsXry65YuzZtpY7VkVQUNSBYte7jTcWbLmIWQ='
-    - secure: ! 'CbdMyExVnyHfPQ+scSky8JIlqK0dU7idBrtvipQIA2dGfIIj0lzuUDEqvtAv
+      eltSdGuJWwAiFMjBGz4IHa2Q7UnS9FcyB4FZXfaPCVZdkmffSzg='
+  - secure: ! 'Ajl+5EjsPtpEh25qfyk0RF2i/oM6g29AWqRHmC+I/TuWhMaFawdTESiqbvJk
 
-      +9A7Mw01ddxQ/tXdixHDBNOhp9Ddz+4/0OSMyIb/5uFy+l7b2B2K4A4R5crI
+      Pir0ogqE+GufgueOYHKmIoYUHfs+dwS82/zBt3bmd8hpSsIGYGMcKVT8Zswe
 
-      RBc5W5rgzRLnDD7HL4BZMRDpx3sJRLcIH9S4bclXyjkzQ7yzVDc='
-    - secure: ! 'Pl14JkhwMe+HHi1Ht0znd0+TnSzdSGvtG4pX8+oSWuIyfTd3xfoj7Pf1S4P/
+      QKT3JOOv7Igf96sgHhDk9T/n8ZlyUhtAJmau2MGdYw6Un0gTnZQ='
+  - secure: ! '1GFCEhzcB7bPhWQA2BJTerMvTa0tZjyrnozP5jgz5ejX5pKp8Q6OQogrrPk9
 
-      7SVnixq2gQh13OaL4Tj2sR6+AHz6n+onareFoKkZPSJuDRh6yXFfvKIdx4MV
+      HZ1KuobWBKF2mnT8S0Kmjia5oR7XQGwanV12Xpe2e+NnqrbWsf7ZZ9OcUK6D
 
-      l5lIJbSI4icPWOMk6ObMCzIb/m3m4Z/BG3O5E/6AcJDQa7rspL0='
-    - secure: ! 'Xrh52mNuRCf1kJHpZctrz3gfBZQ/rlC+qz/MlvZ9L7sm1CFSIoJdizrOYawt
+      MjxAZ2zKo0l6zGyor8Alf5ejcAzTJky+/I855tn8zA8jNPG9fD4='
+  - secure: ! 'xUpzXMelLHrVpjT64uuWi8TbDAElda+gBPXLctHwrL+IgxHekAz6cDIgyukT
 
-      cKOyLfsLrcnJqGbq0s++cSQ2QDggEGxtVkMXxIw7dBFn2icZsKsTN5rh28UR
+      bGlWHFpl0lpedv9/eZbv7OchQOcWg45TccbxMcMjHfxYSDNr73RI1L0epn6j
 
-      W2TakLhFB8f+LQ+/P9PvV1wlSOJQRFItLjjOtcEoQVLi51Pwuzw='
+      UsvChSvlzCmUoYeXqygr/1t1ujABLqoaT+YThn957hlVIoUMOUA='
