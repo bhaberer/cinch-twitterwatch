@@ -8,7 +8,7 @@ module Cinch::Plugins
   class TwitterWatch
     include Cinch::Plugin
 
-    timer 10, method: :check_watched
+    timer 15, method: :check_watched
 
     def initialize(*args)
       super
@@ -23,8 +23,8 @@ module Cinch::Plugins
       debug 'You have set an invalid or protected user ' +
             'to watch, please correct this error'
     rescue Twitter::Error::TooManyRequests
-      debug 'Trottled checking user; sleeping 30 seconds.'
-      sleep 30
+      debug 'Trottled checking user; sleeping 60 seconds.'
+      sleep 60
     end
 
     def check_for_tweet(w)
