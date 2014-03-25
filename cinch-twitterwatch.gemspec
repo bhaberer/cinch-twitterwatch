@@ -19,10 +19,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency 'bundler',          '~> 1.3'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'cinch-test'
+  spec.add_development_dependency 'rake',             '~> 10.1'
+  spec.add_development_dependency 'rspec',            '~> 2.14'
+  spec.add_development_dependency 'coveralls',        '~> 0.7'
+  spec.add_development_dependency 'cinch-test',       '~> 0.0', '>= 0.0.4'
 
   spec.add_dependency             'twitter',          '~> 5.7', '>= 5.7.1'
   spec.add_dependency             'cinch',            '~> 2.0', '>= 2.0.12'
