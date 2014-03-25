@@ -25,7 +25,10 @@ Or install it yourself as:
 
 ## Usage
 
-For the gem to work alll you will need to is add the gem to your plugins:
+For the gem to work all you will need to is require the gem and add
+it to your plugins:
+
+    require 'cinch-twitterwatch'
 
     @bot = Cinch::Bot.new do
       configure do |c|
@@ -39,14 +42,13 @@ see https://dev.twitter.com/apps/new
 Once you have said credentials you will need to pass them to the Plugin's
 config like so:
 
-    c.plugins.options[Cinch::Plugins::TwitterWatch] = {
-                                                        consumer_key:    'consumer_key',
+    c.plugins.options[Cinch::Plugins::TwitterWatch] = { consumer_key:    'consumer_key',
                                                         consumer_secret: 'consumer_secret',
                                                         access_token:    'access_token',
                                                         access_secret:   'access_secret',
-                                                        watchers:
-                                                          '#CHANNEL':
-                                                            - 'TWITTER_USERNAME'
+                                                        watchers: {
+                                                          '#CHANNEL' => ['TWITTER_USERNAME']
+                                                        }
                                                       }
 
 Then post a link to a specific tweet and the bot should post the content of said tweet to the channel.
