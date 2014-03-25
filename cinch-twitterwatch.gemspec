@@ -25,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'cinch-test',       '~> 0.0', '>= 0.0.4'
 
   spec.add_dependency             'twitter',          '~> 5.7', '>= 5.7.1'
-  spec.add_dependency             'cinch',            '~> 2.0', '>= 2.0.12'
+  spec.add_dependency             'cinch',            '~> 2.1', '>= 2.1.0'
   spec.add_dependency             'cinch-toolbox',    '~> 1.1', '>= 1.1.2'
 end
