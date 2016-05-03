@@ -49,8 +49,8 @@ module Cinch
 
       def tweet_text(user, status)
         # Scrub the tweet for returns so we don't have multilined responses.
-        status.gsub!(/[\n]+/, ' ') if status.match(/\n/)
-        "@#{user} tweeted \"#{status}\""
+        flat_status = status.gsub(/[\n]+/, ' ')
+        "@#{user} tweeted \"#{flat_status}\""
       end
 
       private
